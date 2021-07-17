@@ -1,0 +1,21 @@
+.form__submit-button {
+  margin: 14px auto 0;
+  padding: 15px 32px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 424px) {
+  .form__submit-button {
+    font-size: 14px;
+  }
+}
