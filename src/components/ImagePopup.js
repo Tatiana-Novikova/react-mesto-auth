@@ -13,8 +13,8 @@ function ImagePopup(props) {
               opacity-transition" 
             type="button" 
             aria-label="Закрыть"
-            onClick ={props.onClose}>
-          </button>
+            onClick = {props.onClose}
+          />
           <img 
             className="popup-preview-card__image" 
             src={props.card.link} 

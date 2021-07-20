@@ -38,39 +38,45 @@ function AddPlacePopup ({
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <section className="form__section">
+      <section className='form__section'>
         <input 
-          className="form__input" 
-          type="text" 
-          id="form__input-place-title" 
-          name="name" 
-          placeholder="Название" 
-          minLength="1" 
-          maxLength="30" 
+          className='
+            form__input
+            form__input_place_popups
+          '
+          type='text' 
+          id='form__input-place-title' 
+          name='name' 
+          placeholder='Название' 
+          minLength='1' 
+          maxLength='30' 
           required 
           value={name || ''} 
           onChange={handleNameChange}
         />
         <span 
-          className="form__input-error" 
-          id="form__input-place-title-error">
+          className='form__input-error' 
+          id='form__input-place-title-error'>
         </span>
       </section>
-      <section className="form__section">
+      <section className='form__section'>
         <input 
-          className="form__input" 
-          type="url" 
-          id="form__input-place-link" 
-          name="link" 
-          placeholder="Ссылка" 
-          minLength="0" 
+          className='
+            form__input
+            form__input_place_popups
+          '
+          type='url' 
+          id='form__input-place-link' 
+          name='link' 
+          placeholder='Ссылка' 
+          minLength='0' 
           required 
           value={link || ''} 
           onChange={handleLinkChange}
         />
         <span 
-          className="form__input-error" 
-          id="form__input-place-link-error">
+          className='form__input-error' 
+          id='form__input-place-link-error'>
         </span>
       </section>
     </PopupWithForm>

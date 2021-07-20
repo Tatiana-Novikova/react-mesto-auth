@@ -27,7 +27,10 @@ function EditAvatarPopup ({
       <section className="form__section">
         <input 
           ref={avatarRef} 
-          className="form__input" 
+          className="
+            form__input
+            form__input_place_popups
+          "
           type="url" 
           id="form__input-avatar-link" 
           name="link" 

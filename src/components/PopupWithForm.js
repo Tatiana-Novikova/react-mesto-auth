@@ -13,19 +13,25 @@ function PopupWithForm (props) {
           className={`popup__close-button opacity-transition`} 
           type="button" 
           aria-label="Закрыть"
-          onClick ={props.onClose}>
-        </button>
+          onClick ={props.onClose}
+        />
         <h2 className="popup__title">{props.title}</h2>
         <form 
           className="form" 
           name={props.name}
           onSubmit={props.onSubmit}
           noValidate 
-          autoComplete="off">
+          autoComplete="off"
+        >
         {props.children}
           <button
-            className="form__submit-button opacity-transition" 
-            type="submit">
+            className="
+              form__submit-button
+              form__submit-button_place_popups
+              opacity-transition
+            " 
+            type="submit"
+          >
             {props.buttonText}
           </button>
         </form>

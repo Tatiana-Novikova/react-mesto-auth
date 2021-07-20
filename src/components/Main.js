@@ -5,7 +5,7 @@ import Card from './Card.js';
 function Main (props) {
   const currentUser = React.useContext(CurrentUserContext);
 
-  return (
+  return ( 
     <main className="content">
       <section className="profile">
         <div className="profile__info-column">

@@ -47,7 +47,10 @@ function EditProfilePopup ({
     >
       <section className="form__section">
         <input 
-          className="form__input" 
+          className="
+            form__input
+            form__input_place_popups
+          "
           id="form__input-name" 
           name="nameInput" 
           type="text" 
