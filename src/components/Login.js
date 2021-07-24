@@ -18,43 +18,45 @@ function Login (props) {
   }
 
   return (
-    <div className="authorization-page login">
-      <h2 className="authorization-page__title">Вход</h2>
+    <div className='authorization-page login'>
+      <h2 className='authorization-page__title'>Вход</h2>
       <form 
-        className="form"
+        className='form'
         onSubmit={handleSubmit}
       >
         <input
-          className="
+          className='
             form__input
             form__input_place_auth
-          "
-          id="email" 
-          name="email" 
-          type="email"
-          placeholder="Email"
+          '
+          id='email' 
+          name='email' 
+          type='email'
+          placeholder='Email'
           value={email}
           onChange={handleEmailChange}
+          required
         />
         <input
-          className="
+          className='
             form__input
             form__input_place_auth
-          "
-          id="password" 
-          name="password" 
-          type="password" 
-          placeholder="Пароль"
+          '
+          id='password' 
+          name='password' 
+          type='password' 
+          placeholder='Пароль'
           value={password}
           onChange={handlePasswordChange}
+          required
         />
         <button
-          className="
+          className='
             form__submit-button
             form__submit-button_place_auth
             opacity-transition
-          " 
-          type="submit"
+          ' 
+          type='submit'
         >
           Войти
         </button>

@@ -3,7 +3,7 @@
   padding: 0;
   min-width: 24px;
   height: 24px;
-  background: url("../../../images/__delete-button.svg") no-repeat center;
+  background: url('../../../images/__delete-button.svg') no-repeat center;
   background-size: cover;
   box-sizing: border-box;
   cursor: pointer;

@@ -6,21 +6,21 @@ function ImagePopup(props) {
           ${props.card.link ? 'popup_opened' : ''}`
         } 
       >
-        <div className="popup-preview-card__content">
+        <div className='popup-preview-card__content'>
           <button 
-            className="popup__close-button 
+            className='popup__close-button 
               popup-preview-card__close-button 
-              opacity-transition" 
-            type="button" 
-            aria-label="Закрыть"
+              opacity-transition' 
+            type='button' 
+            aria-label='Закрыть'
             onClick = {props.onClose}
           />
           <img 
-            className="popup-preview-card__image" 
+            className='popup-preview-card__image' 
             src={props.card.link} 
             alt={props.card.name} 
           />
-          <h2 className="popup-preview-card__title">
+          <h2 className='popup-preview-card__title'>
             {props.card.name}
           </h2>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function PopupWithForm (props) {
   
@@ -8,29 +8,29 @@ function PopupWithForm (props) {
       ${props.isOpen ? 'popup_opened' : ''}`
       } 
     >
-      <div className="popup__content">
+      <div className='popup__content'>
         <button 
           className={`popup__close-button opacity-transition`} 
-          type="button" 
-          aria-label="Закрыть"
+          type='button' 
+          aria-label='Закрыть'
           onClick ={props.onClose}
         />
-        <h2 className="popup__title">{props.title}</h2>
+        <h2 className='popup__title'>{props.title}</h2>
         <form 
-          className="form" 
+          className='form' 
           name={props.name}
           onSubmit={props.onSubmit}
           noValidate 
-          autoComplete="off"
+          autoComplete='off'
         >
         {props.children}
           <button
-            className="
+            className='
               form__submit-button
               form__submit-button_place_popups
               opacity-transition
-            " 
-            type="submit"
+            ' 
+            type='submit'
           >
             {props.buttonText}
           </button>

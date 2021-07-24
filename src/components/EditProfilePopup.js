@@ -45,43 +45,43 @@ function EditProfilePopup ({
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <section className="form__section">
+      <section className='form__section'>
         <input 
-          className="
+          className='
             form__input
             form__input_place_popups
-          "
-          id="form__input-name" 
-          name="nameInput" 
-          type="text" 
-          placeholder="Имя" 
-          minLength="2" 
-          maxLength="40" 
+          '
+          id='form__input-name' 
+          name='nameInput' 
+          type='text' 
+          placeholder='Имя' 
+          minLength='2' 
+          maxLength='40' 
           required 
           value={name || ''} 
           onChange={handleNameChange}
         />
         <span 
-          className="form__input-error" 
-          id="form__input-name-error">
+          className='form__input-error' 
+          id='form__input-name-error'>
         </span>
       </section> 
-      <section className="form__section">
+      <section className='form__section'>
         <input 
-          className="form__input" 
-          id="form__input-profession" 
-          name="professionInput" 
-          type="text" 
-          placeholder="Профессия" 
-          minLength="2" 
-          maxLength="200" 
+          className='form__input' 
+          id='form__input-profession' 
+          name='professionInput' 
+          type='text' 
+          placeholder='Профессия' 
+          minLength='2' 
+          maxLength='200' 
           required 
           value={description || ''} 
           onChange={handleDescriptionChange}
         />
         <span 
-          className="form__input-error" 
-          id="form__input-profession-error">
+          className='form__input-error' 
+          id='form__input-profession-error'>
         </span>
       </section>
     </PopupWithForm>

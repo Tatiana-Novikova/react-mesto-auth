@@ -34,29 +34,29 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
   };
 
   return (
-    <article className="card">
+    <article className='card'>
       <button 
         className={`${cardDeleteButtonClassName}`} 
-        type="button" 
-        aria-label="Удалить" 
+        type='button' 
+        aria-label='Удалить' 
         onClick={handleDeleteClick}>
       </button>
       <img 
-        className="card__image" 
+        className='card__image' 
         src={card.link} 
         alt={card.name} 
         onClick={handleClick}
       />
-      <div className="card__main">
-        <h2 className="card__title">{card.name}</h2>
-        <div className="card__likes-container">
+      <div className='card__main'>
+        <h2 className='card__title'>{card.name}</h2>
+        <div className='card__likes-container'>
           <button 
             className={`${cardLikeButtonClassName}`}
-            type="button" 
-            aria-label="Оценить" 
+            type='button' 
+            aria-label='Оценить' 
             onClick={handleLikeClick}>
           </button>
-          <span className="card__likes">{card.likes.length}</span>
+          <span className='card__likes'>{card.likes.length}</span>
         </div>
       </div>
     </article>

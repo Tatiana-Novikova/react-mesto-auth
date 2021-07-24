@@ -5,11 +5,11 @@ class Api {
     this._cohortId = options.cohortId;
   }
 
-  _handleResponse = (response) => {
-    if (response.ok) {
-      return response.json();
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
     } else {
-      return Promise.reject(response.status);
+      return Promise.reject(res.status);
     }
   }
 
@@ -23,13 +23,12 @@ class Api {
     };
     return fetch (
       `${this._address}/${this._cohortId}/${endpoint}`,
-      body ? 
-        { ...fetchInit, body: JSON.stringify(body) } 
-      : 
-        fetchInit
+      body 
+        ? { ...fetchInit, body: JSON.stringify(body) } 
+        : fetchInit
     )
     .then (
-      this._handleResponse
+      this._checkResponse
     )
   }
 

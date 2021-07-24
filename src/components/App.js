@@ -31,38 +31,38 @@ function App() {
   const [cardToDelete, setCardToDelete] = React.useState(null);
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
-  
-  const componentDidMount = () => {
-    handleTokenCheck();
-  }
 
-  const handleTokenCheck = () => {
-    if(localStorage.getItem('jwt')) {
-      const jwt = localStorage.getItem('jwt');
-      auth.checkToken(jwt)
-      .then((res) => {
+  const handleTokenCheck = () => { 
+    if (localStorage.getItem('jwt')) {
+      const jwt = localStorage.getItem('jwt'); 
+      auth.checkToken(jwt) 
+      .then((res) => { 
         if (res) {
           setEmail(res.data.email);
           history.push('/');
-          setLoggedIn(true);
         }
       })
       .catch((error) => console.log(error));
+      setLoggedIn(true);
     }
+  }
+
+  function componentDidMount() {
+    handleTokenCheck();
   }
 
   const history = useHistory();
 
-  function signOut(){
-    localStorage.removeItem('jwt');
-  }
-
-  function handleLogin() {
+  function handleSignIn() {
     setLoggedIn(true);
   }
 
   function handleRegister() {
     setRegisted(true);
+  }
+
+  function handleSignOut() {
+    localStorage.removeItem('jwt');
   }
 
   function handleEditAvatarClick() {
@@ -109,6 +109,7 @@ function App() {
       setCards([newCard, ...cards]);
       setIsAddCardPopupOpened(false);
     })
+    .catch((error) => console.log(error));
   }
 
   function handleCardLike(card) {
@@ -133,7 +134,7 @@ function App() {
       .catch((error) => console.log(error));
   }
 
-  function closeAllPopups () {
+  function closeAllPopups() {
     setIsEditAvatarPopupOpened(false);
     setIsEditProfilePopupOpened(false);
     setIsAddCardPopupOpened(false);
@@ -142,7 +143,7 @@ function App() {
     setSelectedCard(false);
   }
 
-  function handleRegisterSubmit (email, password) {
+  function handleRegisterSubmit(email, password) {
     auth.register(email, password)
     .then((data) => {
       if (data) {
@@ -151,7 +152,11 @@ function App() {
         setIsInfoTooltipOpened(true);
       }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log(error)
+      setRegisted(false);
+      setIsInfoTooltipOpened(true);
+    });
   }
 
   function handleLoginSubmit (email, password) {
@@ -168,34 +173,34 @@ function App() {
       setIsInfoTooltipOpened(true);
     });
   }
-  
-  React.useEffect(() => {
-    componentDidMount();
-  })
 
   React.useEffect(() => {
-    Promise.all([ 
+    Promise.all([
       api.getUserInfo(),
-      api.getInitialCards()
-      ])
-      .then(([userData, cardData]) => {
-        setCurrentUser(userData);
-        setCards(cardData);
-      })
+      api.getInitialCards() 
+    ])
+    .then(([userData, cardData]) => {
+      setCurrentUser(userData);
+      setCards(cardData);
+    })
       .catch((error) => console.log(error));
   }, []);
 
-  return (
+  React.useEffect(() => {
+    componentDidMount();
+  }, []);
+
+  return(
       <div className='page'>
       <div className='page-container'>
         <CurrentUserContext.Provider value={currentUser}>
           <Header 
-            onSignOut={signOut}
+            onSignOut={handleSignOut}
             email={email}
           />
           <Switch>
             <ProtectedRoute
-              exact path="/"
+              exact path='/'
               loggedIn={loggedIn}
               component={Main}
               cards={cards}
@@ -215,10 +220,10 @@ function App() {
             <Route path='/sign-in'>
               <Login 
                 onLogin={handleLoginSubmit}
-                onSubmit={handleLogin}
+                onSubmit={handleSignIn}
               />
             </Route>
-            <Route exact path='/'>
+            <Route path='/'>
               {loggedIn ?  
                 <Redirect to='/main' /> :
                 <Redirect to='./sign-up' />}

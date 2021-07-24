@@ -24,23 +24,23 @@ function EditAvatarPopup ({
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <section className="form__section">
+      <section className='form__section'>
         <input 
           ref={avatarRef} 
-          className="
+          className='
             form__input
             form__input_place_popups
-          "
-          type="url" 
-          id="form__input-avatar-link" 
-          name="link" 
-          placeholder="Ссылка" 
-          minLength="0" 
+          '
+          type='url' 
+          id='form__input-avatar-link' 
+          name='link' 
+          placeholder='Ссылка' 
+          minLength='0' 
           required 
         />
         <span 
-          className="form__input-error" 
-          id="form__input-avatar-link-error">
+          className='form__input-error' 
+          id='form__input-avatar-link-error'>
         </span>
       </section>
     </PopupWithForm>

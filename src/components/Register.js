@@ -20,49 +20,49 @@ function Register (props) {
 
 
   return (
-    <div className="authorization-page register">
-      <h2 className="authorization-page__title">Регистрация</h2>
+    <div className='authorization-page register'>
+      <h2 className='authorization-page__title'>Регистрация</h2>
       <form 
-        className="form"
+        className='form'
         onSubmit={handleSubmit}
       >
         <input
-          className="
+          className='
             form__input
             form__input_place_auth
-          "
-          id="email" 
-          name="email" 
-          type="email"
-          placeholder="Email"
+          '
+          id='email' 
+          name='email' 
+          type='email'
+          placeholder='Email'
           value={email}
           onChange={handleEmailChange}
         />
         <input
-          className="
+          className='
             form__input
             form__input_place_auth
-          "
-          id="password" 
-          name="password" 
-          type="password" 
-          placeholder="Пароль"
+          '
+          id='password' 
+          name='password' 
+          type='password' 
+          placeholder='Пароль'
           value={password}
           onChange={handlePasswordChange}
         />
         <button
-          className="
+          className='
             form__submit-button
             form__submit-button_place_auth
             opacity-transition
-          " 
-          type="submit"
+          ' 
+          type='submit'
         >
           Зарегистрироваться
         </button>
         <Link 
-          to="/sign-in"
-          className="form__sign-in-link"
+          to='/sign-in'
+          className='form__sign-in-link'
         >
           Уже зарегистрированы? Войти
         </Link>
