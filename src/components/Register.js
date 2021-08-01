@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Register (props) {
+function Register ({ onRegister }) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -15,7 +15,7 @@ function Register (props) {
 
   function handleSubmit (e) {
     e.preventDefault()
-    props.onRegister(email, password)
+    onRegister(email, password)
   }
 
 
@@ -27,10 +27,7 @@ function Register (props) {
         onSubmit={handleSubmit}
       >
         <input
-          className='
-            form__input
-            form__input_place_auth
-          '
+          className='form__input form__input_place_auth'
           id='email' 
           name='email' 
           type='email'
@@ -39,10 +36,7 @@ function Register (props) {
           onChange={handleEmailChange}
         />
         <input
-          className='
-            form__input
-            form__input_place_auth
-          '
+          className='form__input form__input_place_auth'
           id='password' 
           name='password' 
           type='password' 
@@ -51,11 +45,7 @@ function Register (props) {
           onChange={handlePasswordChange}
         />
         <button
-          className='
-            form__submit-button
-            form__submit-button_place_auth
-            opacity-transition
-          ' 
+          className='form__submit-button form__submit-button_place_auth opacity-transition' 
           type='submit'
         >
           Зарегистрироваться

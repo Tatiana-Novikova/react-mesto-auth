@@ -1,11 +1,7 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-function EditAvatarPopup ({
-    isOpen, 
-    onClose, 
-    onUpdateAvatar
-  }) {
+function EditAvatarPopup ({ isOpen, onClose, onUpdateAvatar}) {
   const avatarRef = React.useRef();
 
   function handleSubmit(e) {
@@ -27,10 +23,7 @@ function EditAvatarPopup ({
       <section className='form__section'>
         <input 
           ref={avatarRef} 
-          className='
-            form__input
-            form__input_place_popups
-          '
+          className='form__input form__input_place_popups'
           type='url' 
           id='form__input-avatar-link' 
           name='link' 

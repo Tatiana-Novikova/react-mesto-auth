@@ -2,11 +2,7 @@ import React from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import PopupWithForm from './PopupWithForm';
 
-function EditProfilePopup ({
-    isOpen, 
-    onClose, 
-    onEditProfile
-  }) {
+function EditProfilePopup ({ isOpen, onClose, onEditProfile }) {
   const currentUser = 
     React.useContext(CurrentUserContext);
   const [name, setName] = 
@@ -47,10 +43,7 @@ function EditProfilePopup ({
     >
       <section className='form__section'>
         <input 
-          className='
-            form__input
-            form__input_place_popups
-          '
+          className='form__input form__input_place_popups'
           id='form__input-name' 
           name='nameInput' 
           type='text' 

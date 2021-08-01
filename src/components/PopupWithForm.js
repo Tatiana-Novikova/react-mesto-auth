@@ -1,38 +1,63 @@
 import React from 'react';
 
-function PopupWithForm (props) {
+function PopupWithForm ({ 
+  name, 
+  title,
+  buttonText,
+  onClose,
+  isOpen,
+  onSubmit,
+  children
+}) {
+
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const handleEscapeClose = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleEscapeClose);
+    return() => {
+      document.removeEventListener('keydown', handleEscapeClose);
+    };
+  }, [isOpen, onClose]);
+
+  const handleOverlayClose = (e) => {
+    if (e.target === e.currentTarget && isOpen) {
+      onClose();
+    }
+  } 
   
   return (
-    <section className=
-      {`popup popup_type_${props.name} 
-      ${props.isOpen ? 'popup_opened' : ''}`
-      } 
+    <section 
+      className=
+        {`popup popup_type_${name} 
+        ${isOpen ? 'popup_opened' : ''}`
+        }
+      onClick={handleOverlayClose}
     >
       <div className='popup__content'>
         <button 
           className={`popup__close-button opacity-transition`} 
           type='button' 
           aria-label='Закрыть'
-          onClick ={props.onClose}
+          onClick ={onClose}
         />
-        <h2 className='popup__title'>{props.title}</h2>
+        <h2 className='popup__title'>{title}</h2>
         <form 
           className='form' 
-          name={props.name}
-          onSubmit={props.onSubmit}
+          name={name}
+          onSubmit={onSubmit}
           noValidate 
           autoComplete='off'
         >
-        {props.children}
+        {children}
           <button
-            className='
-              form__submit-button
-              form__submit-button_place_popups
-              opacity-transition
-            ' 
+            className='form__submit-button form__submit-button_place_popups opacity-transition' 
             type='submit'
           >
-            {props.buttonText}
+            {buttonText}
           </button>
         </form>
       </div>
